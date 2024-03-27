@@ -36,11 +36,11 @@ Typecho_Common::init();
 /** 定义数据库参数 */
 $db = new Typecho_Db('Pdo_Mysql','seyou_');
 $db->addServer(array (
-  'host' =>  $_ENV["POSTGRES_HOST"],
-  'user' => $_ENV["POSTGRES_USER"],
-  'password' => $_ENV["POSTGRES_PASSWORD"],
+  'host' =>  $_ENV["MYSQLHOST"],
+  'user' => $_ENV["MYSQLUSER"],
+  'password' => $_ENV["MYSQLPASSWORD"],
   'charset' => 'utf8mb4',
-  'database' => $_ENV["POSTGRES_DATABASE"],
+  'database' => $_ENV["MYSQLDATABASE"],
   'engine' => 'MyISAM',
 ), Typecho_Db::READ | Typecho_Db::WRITE);
 Typecho_Db::set($db);
