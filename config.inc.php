@@ -34,14 +34,16 @@ require_once 'Typecho/Common.php';
 Typecho_Common::init();
 
 /** 定义数据库参数 */
-$db = new Typecho_Db('Pdo_Mysql', 'typecho_');
+$db = new Typecho_Db('Pdo_Mysql','seyou_');
 $db->addServer(array (
-  'host' => '数据库地址',
-  'user' => '数据库用户名',
-  'password' => '数据库密码',
+  'host' =>  $_ENV["PLANETSCALE_DB_HOST"],
+  'user' => $_ENV["PLANETSCALE_DB_USERNAME"],
+  'password' => $_ENV["PLANETSCALE_DB_PASSWORD"],
   'charset' => 'utf8mb4',
-  'port' => '3306',
-  'database' => '数据库昵称',
+  'database' => $_ENV["PLANETSCALE_DB"],
   'engine' => 'MyISAM',
+  'sslCa' => $_ENV["PLANETSCALE_SSL_CERT_PATH"],
+  'sslVerify' => true,
 ), Typecho_Db::READ | Typecho_Db::WRITE);
 Typecho_Db::set($db);
+
