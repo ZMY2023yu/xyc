@@ -36,13 +36,13 @@ Typecho_Common::init();
 /** 定义数据库参数 */
 $db = new Typecho_Db('Pdo_Mysql','seyou_');
 $db->addServer(array (
-  'host' =>  $_ENV["PLANETSCALE_DB_HOST"],
-  'user' => $_ENV["PLANETSCALE_DB_USERNAME"],
-  'password' => $_ENV["PLANETSCALE_DB_PASSWORD"],
+  'host' =>  $_ENV["POSTGRES_HOST"],
+  'user' => $_ENV["POSTGRES_USER"],
+  'password' => $_ENV["POSTGRES_PASSWORD"],
   'charset' => 'utf8mb4',
-  'database' => $_ENV["PLANETSCALE_DB"],
+  'database' => $_ENV["POSTGRES_DATABASE"],
   'engine' => 'MyISAM',
-  'sslCa' => $_ENV["PLANETSCALE_SSL_CERT_PATH"],
+  'sslCa' => $_ENV["SUPABASE_URL"],
   'sslVerify' => true,
 ), Typecho_Db::READ | Typecho_Db::WRITE);
 Typecho_Db::set($db);
